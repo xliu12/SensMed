@@ -141,7 +141,7 @@ sens_IIE_M1 <- function(med, mus, alphas_each, m_each, params, cf.y = 0.04, cf.m
 sens_IIE_Mjo <- function(med, mus, alphas_each, m_each, params, cf.y = 0.04, cf.m = 0.03, rho2 = 1, only_YM_confounded = TRUE, mediatedY = c(1)) {
     # cal_nu2 <- cal.nu2.IIE_Mjo(alphas_each)
     # cal_nu2 <- cal.nu2.IIE_Mjo(alphas_each[mediatedY]) # alpha's bias component is bounded by the plus-signed mean potential outcome
-    if (params == "IIE_Mjo") {
+    if (params != "IDE") {
         cal_nu2 <- cal.nu2.IIE_Mjo(alphas_each[ mediatedY ])
     }
     if (params == "IDE") {

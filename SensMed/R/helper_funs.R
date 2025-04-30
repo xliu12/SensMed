@@ -4,7 +4,7 @@ shift_data <- function(data, trt, shift = 1, center = NA_character_) {
     for (a in trt) {
         data[[a]] <- shift[[a]]
         # data[[glue("{a}0")]] <- 1 - shift[[a]]
-        
+
         if (!is.na(center)) {
             data[[glue("{a}_cwc")]] <- shift[[a]] - data[[ glue("{a}_clmean") ]]
             # data[[glue("{a}0_cwc")]] <- 1 - shift[[a]] - data[[ glue("{a}_clmean") ]]
@@ -19,7 +19,7 @@ normalize <- function(x) {
 }
 
 
-estimate_control <- function(crossfit_folds = 4, 
+estimate_control <- function(crossfit_folds = 4,
                              mlr3superlearner_folds = 10,
                              mlr3superlearner_discrete = TRUE,
                              epochs = 10L,
@@ -80,13 +80,13 @@ bound.ipw <- function(ipw, n) {
 }
 
 
-# update interactions
-update.interactions <- function(data, tt, R, ttR) {
-    
-    data[, ttR] <- data[[tt]] * data[[R]]
-    
-    data
-}
+# # update interactions
+# update.interactions <- function(data, tt, R, ttR) {
+#
+#     data[, ttR] <- data[[tt]] * data[[R]]
+#
+#     data
+# }
 
 
 

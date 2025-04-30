@@ -12,7 +12,7 @@ benchmark.effect <- function(med,
     # cal_nu2 <- cal.nu2(alphas_each)
     # param = "IIE_Mjo"
     if (m_each[[1]][["az"]] == "") {
-        if (param == "IIE_Mjo") {
+        if (param != "IDE") {
             nu2_list <- cal.nu2.IIE_Mjo(alphas_each[ mediatedY ])
             nu2 <- nu2_list$nu2
             nu2plugin <- nu2_list$nu2plugin
@@ -115,7 +115,7 @@ benchmark.effect <- function(med,
         
         if (m_each[[1]][["az"]] == "") {
             # mediatedY <- grep("am0_ay1", names(alphas_each))
-            if (param == "IIE_Mjo") {
+            if (param != "IDE") {
                 nu2_oc_list <- cal.nu2.IIE_Mjo(alphas_oc[ mediatedY ])
                 nu2_oc <- nu2_oc_list$nu2
                 nu2plugin_oc <- nu2_oc_list$nu2plugin

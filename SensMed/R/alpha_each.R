@@ -1,4 +1,6 @@
 
+# from crumble https://github.com/nt-williams/crumble
+
 estimate_alpha_each <- function(med, m_each, folds, nn_module, control, which.M, benchmark_covar = NULL) {
     alpha_each_list <- vector("list", control$crossfit_folds)
     i <- 1

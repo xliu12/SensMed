@@ -1,3 +1,6 @@
+
+# from crumble https://github.com/nt-williams/crumble
+
 med_data <- S7::new_class("med_data",
                               properties = list(
                                   data = S7::new_property(S7::class_data.frame),
