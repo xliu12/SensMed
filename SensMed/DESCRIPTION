@@ -9,7 +9,6 @@ Imports:
     tidyverse,
     glue,
     origami,
-    fastDummies,
     SuperLearner,
     mlr3superlearner,
     mlr3extralearners,

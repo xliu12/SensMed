@@ -12,6 +12,7 @@ run.contour(
   bench.cf.m = NULL,
   rho = c(1, 1),
   cf_grid = NULL,
+  maxgrid = max(c(bench.cf.y, bench.cf.m)),
   y_axis = NULL,
   x_axis = NULL,
   contour_levels = NULL,
@@ -22,6 +23,8 @@ run.contour(
 \arguments{
 \item{effect}{A \code{string} specifying the name of the effect. Options include  "IIE" (interventional indirect effect) or "IDE" (interventional direct effect).}
 
+\item{target}{(optional) A \code{string} indicating the values to be plotted, which can be one of the column names of the \code{data.frame} object "sens_res" returned by the function \code{run.sensmed}. Default is target = "theta_m.90%CI_low", the lower confidence limit of the lower bound.}
+
 \item{short_list}{An object named "short_list" returned by the function \code{run.sensmed}.}
 
 \item{bench.cf.y}{(optional) A \code{numeric(1)} value to be used for both the R-squared sensitivity parameters for the regressions, to be added as an additional point on the plot.}
@@ -29,6 +32,10 @@ run.contour(
 \item{bench.cf.m}{(optional) A \code{numeric(1)} value to be used for both the R-squared sensitivity parameters for the weights, to be added as an additional point on the plot.}
 
 \item{rho}{(optional) A \code{numeric} vector of the correlation sensitivity parameters, that is, rho_\{1\} and rho_\{2\}.}
+
+\item{cf_grid}{An optional \code{data.frame} containing the grid points used to generate the contour plot.}
+
+\item{maxgrid}{An optional \code{numeric(1)} value between 0 and 1 specifying the maximum x- and y-coordinate limits for the grid points used to generate the contour plot.}
 }
 \description{
 Compute estimates and confidence intervals for the bounds of the interventional indirect or direct effect at specified sensitivity parameter values.
