@@ -3,7 +3,7 @@
 #' Compute estimates and confidence intervals for the bounds of the interventional indirect or direct effect at specified sensitivity parameter values.
 #'
 #' @param effect A \code{string} specifying the name of the effect. Options include  "IIE" (interventional indirect effect) or "IDE" (interventional direct effect).
-#' @param target (optional) A \code{string} indicating the values to be plotted, which can be one of the column names of the \code{data.frame} object "sens_res" returned by the function \code{run.sensmed}. Default is target = "theta_m.90%CI_low", the lower confidence limit of the lower bound.
+#' @param target (optional) A \code{string} indicating the values to be plotted, which can be one of the column names of the \code{data.frame} object "sens_res" returned by the function \code{run.sensmed}. Default is target = "theta_m.90\%CI_low", the lower confidence limit of the lower bound.
 #' @param bench.cf.y (optional) A \code{numeric(1)} value to be used for both the R-squared sensitivity parameters for the regressions, to be added as an additional point on the plot.
 #' @param bench.cf.m (optional) A \code{numeric(1)} value to be used for both the R-squared sensitivity parameters for the weights, to be added as an additional point on the plot.
 #' @param rho (optional) A \code{numeric} vector of the correlation sensitivity parameters, that is, rho_\{1\} and rho_\{2\}.
@@ -13,6 +13,7 @@
 #'
 #'
 #' @export
+#'
 #'
 
 run.contour <- function(effect = "IIE", target = "theta_m.90%CI_low", short_list, bench.cf.y = NULL, bench.cf.m = NULL, rho = c(1, 1), cf_grid = NULL, maxgrid = max(c(bench.cf.y, bench.cf.m)), y_axis = NULL, x_axis = NULL, contour_levels = NULL, plot_zero_confounding = FALSE, only_YM_confounded = FALSE) {

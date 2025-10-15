@@ -44,6 +44,47 @@ run.sensmed(
 
 \item{control}{(optional) A list of control parameters specified via \code{estimate_control()}. The default setting is based on R package \code{crumble}.}
 }
+\value{
+A list containing the following:
+\item{short_list}{A list containing estimates for short components.}
+\item{tab_sensitivity_reporting}{A data.frame containing robustness values, and estimates, standard errors, and confidence intervals for the short parameter.}
+\item{sens_res}{A data.frame containing sensitivity results at the specified sensitivity parameter values: estimates, standard errors, and confidence intervals for the short parameter (theta_s), lower bound (theta_m), and upper bound (theta_p).}
+}
 \description{
 Implements a sensitivity analysis method for unmeasured pretreatment confounders in assessing causal mediation effects based on the debiased machine learning approach.
+}
+\examples{
+\donttest{
+    library(glue)
+    library(purrr)
+    library(tidyverse)
+    library(origami)
+    library(mlr3superlearner)
+    library(mlr3extralearners)
+
+
+    data("simulated_data")
+    dat <- aa
+
+    # RV and sensitivity results at specified sensitivity parameter values
+
+    sens_M1 <- SensMed::run.sensmed(
+        data = dat,
+        treatment = "A",
+        outcome = "Y",
+        mediators = "M",
+        covariates = c("X1obs", "X2obs"),
+        learners = c("mean", "glm", "ranger"),
+        cf.y = c(0.26, 0.26),
+        cf.m = c(0.26, 0.26),
+        rho = c(1, 1),
+        RV.options = list(theta.null = 0, cf = seq(0, 0.99, by = 0.01), rho = c(1, 1))
+    )
+
+    # Robustness values, and estimates, standard errors, and confidence intervals for the short parameter
+    sens_M1$tab_sensitivity_reporting
+    # Sensitivity results at the specified sensitivity parameter values: estimates, standard errors, and confidence intervals for the short parameter (theta_s), lower bound (theta_m), and upper bound (theta_p)
+    sens_M1$sens_res
+
+}
 }

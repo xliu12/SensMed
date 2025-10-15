@@ -23,7 +23,7 @@ run.contour(
 \arguments{
 \item{effect}{A \code{string} specifying the name of the effect. Options include  "IIE" (interventional indirect effect) or "IDE" (interventional direct effect).}
 
-\item{target}{(optional) A \code{string} indicating the values to be plotted, which can be one of the column names of the \code{data.frame} object "sens_res" returned by the function \code{run.sensmed}. Default is target = "theta_m.90%CI_low", the lower confidence limit of the lower bound.}
+\item{target}{(optional) A \code{string} indicating the values to be plotted, which can be one of the column names of the \code{data.frame} object "sens_res" returned by the function \code{run.sensmed}. Default is target = "theta_m.90\%CI_low", the lower confidence limit of the lower bound.}
 
 \item{short_list}{An object named "short_list" returned by the function \code{run.sensmed}.}
 

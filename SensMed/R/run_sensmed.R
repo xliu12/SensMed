@@ -20,7 +20,15 @@
 # @param contour_grid (optional) A list of two \code{numeric} vectors that contain the x- and y-coordinates of grid lines. By default, \code{contour_grid = list(x = seq(0, 1, by = 0.03), y = seq(0, 1, by = 0.03))}.
 #' @param control (optional) A list of control parameters specified via \code{estimate_control()}. The default setting is based on R package \code{crumble}.
 #'
+#' @return A list containing the following:
+#' \item{short_list}{A list containing estimates for short components.}
+#' \item{tab_sensitivity_reporting}{A data.frame containing robustness values, and estimates, standard errors, and confidence intervals for the short parameter.}
+#' \item{sens_res}{A data.frame containing sensitivity results at the specified sensitivity parameter values: estimates, standard errors, and confidence intervals for the short parameter (theta_s), lower bound (theta_m), and upper bound (theta_p).}
+#'
+#'
 #' @export
+#'
+#' @example inst/example.R
 #'
 
 run.sensmed <- function(data,
